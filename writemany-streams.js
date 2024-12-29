@@ -1,5 +1,5 @@
 //writing somegthing to file many times
-const fs = require("fs");
+const fs = require("node:fs");
 
 (async function openFileAndWrite() {
     /*
@@ -16,8 +16,11 @@ const fs = require("fs");
 
 
 async function writeToFileMillionTimes(data) {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 100; i++) {
         const fileData = await fs.promises.readFile("file1.txt")
-        await fs.promises.writeFile("file1.txt", fileData + "\n" + data)
+        const res = "Buffer added in each loop is \n" + fileData + "\n" + data
+        console.log(res);
+        const buff = Buffer.from(res,"utf-8")
+        await fs.promises.writeFile("file1.txt", buff)
     }
 }
