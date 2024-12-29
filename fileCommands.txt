@@ -1,0 +1,1 @@
+readfile newfile.txt "Hello js"

@@ -1,0 +1,7 @@
+console.log("first")
+console.log("second")
+setTimeout(()=>{console.log("???... first waiting time ...???")}, 1000)
+process.nextTick(()=>console.log("Next tick exe"))
+console.log("third")
+console.log("fourth")
+console.log("fifth")
